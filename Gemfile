@@ -19,11 +19,16 @@ gem "stimulus-rails"
 
 gem "jbuilder"
 
+gem "jquery-rails"
+
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "bootsnap", require: false
 
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails"
+
+gem "devise"
+gem "devise-i18n"
 
 group :development, :test do
   gem 'byebug'
