@@ -10,18 +10,25 @@
         <div class="col-md-6">
           <div class="event-description">
             <h1><%= @event.title %></h1>
-            <h3><%= @event.datetime %></h3>
+            <h3><%= l(@event.datetime, format: :short) %></h3>
             <h3>
               <small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small>
             </h3>
             <p><%= @event.description %></p>
           </div>
 
-          <% if current_user_can_edit?(@event) %>
-            <div>
-              <%= link_to 'Изменить', edit_event_path(@event), class: 'btn btn-primary'%>
-            </div>
-          <% end %>
+            <% if current_user_can_edit?(@event) %>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <%= link_to t('edit'), edit_event_path(@event), class: 'btn btn-primary'-%>
+                </li>
+
+                <li class="list-inline-item">
+                  <%= button_to t('delete'), event_path(@event), method: :delete,
+                  data: { turbo_confirm: 'Точно удалить вопрос?' }, class: 'btn btn-primary buffer-sm-top' %>
+                </li>
+              </ul>
+            <% end %>
         </div>
       </div>
     </div>

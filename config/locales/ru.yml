@@ -1,2 +1,45 @@
 ru:
-  hello: "Привет мир"
+  activerecord:
+    models:
+      user: 'Пользователь'
+      event: 'Событие'
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      event:
+        title: 'Название'
+        address: 'Место проведения'
+        datetime: 'Дата и время'
+        description: 'Описание'
+  controllers:
+    events:
+      created: 'Вы создали новое мероприятие'
+      updated: 'Вы обновили мероприятие'
+      destroyed: 'Вы удалили мероприятие :('
+    users:
+      updated: 'Вы обновили свой профиль'
+  views:
+    events:
+      new:
+        title:
+          'Новое событие'
+      edit: 'Редактирование события'
+      destroy: 'Удалить событие'
+
+  app:
+    name: 'Шашлыки'
+    company: 'ТерАрт'
+
+  edit: 'Изменить'
+  or: 'или'
+  return: 'Вернуться'
+  delete: 'Удалить'
+
+  navbar:
+    profile: 'Профиль'
+    log_out: 'Выйти'
+    sign_in: 'Войти'
+    sign_up: 'Зарегистрироваться'

@@ -1,27 +1,7 @@
-<%= form_for(@event) do |form| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+<h1><%= t('views.events.edit.title') %></h1>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+<div class="row">
+  <div class="col-md-6 buffer-top">
+    <%= render partial: 'events/form', locals: {event: @event } %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :datetime %>
-    <%= form.datetime_select :datetime, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control' %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit class: 'btn btn-primary' %> <%= t('or') %> <%= link_to t('return'), :back %>
-  </div>
-<% end %>
+</div>

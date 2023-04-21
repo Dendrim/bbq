@@ -8,10 +8,12 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
+
     <%= javascript_include_tag "application" %>
   </head>
-  <body>
 
+  <body>
     <div class="navbar navbar-default navbar-static-top">
       <div class="container paralsll">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -20,16 +22,16 @@
           <span class="icon-bar"></span>
         </button>
 
-        <%= link_to 'BBQ!', root_path, class: 'navbar-brand'%>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand'%>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-              <li><%= link_to 'Профиль', current_user %></li>
-              <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete  %></li>
+              <li><%= link_to t('navbar.profile'), current_user %></li>
+              <li><%= link_to t('navbar.log_out'), destroy_user_session_path, method: :delete  %></li>
             <% else %>
-              <li><%= link_to 'Войти', new_user_session_path %></li>
-              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+              <li><%= link_to t('navbar.sign_in)'), new_user_session_path %></li>
+              <li><%= link_to t('navbar.sign_up'), new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>
@@ -47,7 +49,7 @@
       </div><!--/row-->
 
       <footer class="buffer-top">
-        <p>&copy; Company 2023</p>
+        <p>&copy; <%= t('app.company') %> 2023</p>
       </footer>
 
     </div> <!-- /container -->

@@ -32,5 +32,3 @@
 en:
   hello: "Hello world"
   password_help_block: "minimum length - 6 characters"
-  return: "go back"
-  or: "or"

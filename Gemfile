@@ -25,10 +25,13 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "bootsnap", require: false
 
+#bootstrap 4
 gem "twitter-bootstrap-rails"
 
 gem "devise"
 gem "devise-i18n"
+#gem "russian"
+gem "rails-i18n"
 
 group :development, :test do
   gem 'byebug'
