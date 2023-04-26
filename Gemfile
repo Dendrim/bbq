@@ -33,6 +33,8 @@ gem "devise-i18n"
 #gem "russian"
 gem "rails-i18n"
 
+gem 'font-awesome-rails'
+
 group :development, :test do
   gem 'byebug'
 end

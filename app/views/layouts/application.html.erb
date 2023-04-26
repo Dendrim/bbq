@@ -30,7 +30,7 @@
               <li><%= link_to t('navbar.profile'), current_user %></li>
               <li><%= link_to t('navbar.log_out'), destroy_user_session_path, method: :delete  %></li>
             <% else %>
-              <li><%= link_to t('navbar.sign_in)'), new_user_session_path %></li>
+              <li><%= link_to t('navbar.sign_in'), new_user_session_path %></li>
               <li><%= link_to t('navbar.sign_up'), new_user_registration_path %></li>
             <% end %>
           </ul>

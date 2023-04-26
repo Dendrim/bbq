@@ -15,6 +15,16 @@ ru:
         datetime: 'Дата и время'
         description: 'Описание'
   controllers:
+    subscriptions:
+      created: 'Вы подписаны на это событие'
+      destroyed: 'Участник отписан'
+      error: 'Подписка/отписка не сработала'
+      cant_sub_registered: 'Email уже зарегистрирован. Войдите на сайт и попробуте снова.'
+      cant_subscribe_to_your_own_event: 'Вы не можете подписаться на собственное событие.'
+    comments:
+      destroyed: 'Комментарий удален'
+      created: 'Ваш комментарий добавлен'
+      error: 'Ошибка с комментарием'
     events:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
@@ -33,13 +43,28 @@ ru:
     name: 'Шашлыки'
     company: 'ТерАрт'
 
+  delete: 'Удалить'
   edit: 'Изменить'
   or: 'или'
   return: 'Вернуться'
-  delete: 'Удалить'
 
   navbar:
-    profile: 'Профиль'
     log_out: 'Выйти'
+    profile: 'Профиль'
     sign_in: 'Войти'
     sign_up: 'Зарегистрироваться'
+
+  error:
+    one:  'ошибка'
+    few:  'ошибки'
+    many: 'ошибок'
+
+  comments:
+    submit: 'Отправить'
+    comment:
+      destroy_confirm: 'Вы точно хотите удалить этот комментарий?'
+
+  subscriptions:
+    subscribe: 'Подписаться'
+    subscription:
+      destroy_confirm: 'Вы точно хотите удалить эту подписку?'
