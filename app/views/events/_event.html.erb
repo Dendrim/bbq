@@ -14,6 +14,14 @@
           </h3>
           <div class="buffer-both"><%= event.address %></div>
         </div>
+
+        <div>
+          <% event.visitors.each do |user|%>
+            <%= link_to user do %>
+              <%= image_tag user_avatar_thumb(user), class: 'img-icon', title: user.name %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

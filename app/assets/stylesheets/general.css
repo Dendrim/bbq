@@ -14,7 +14,8 @@
 
 /* Avatars for users & events */
 .img-icon, .img-icon-small {
-  height: 50px;
+  display: inline-block !important;
+  height: 50px !important;
   width: auto;
   border-radius: 50%;
 }
@@ -37,4 +38,8 @@
 
 .thumbnail-inner {
   padding: 20px 4px 4px;
+}
+
+.alert {
+  display:inline-block;
 }

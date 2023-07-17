@@ -12,9 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *
  *
  *= require events
- *
  *= require general
- *= require font-awesome
+ *= require user
+ *= require comment
  */

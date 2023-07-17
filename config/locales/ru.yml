@@ -1,10 +1,18 @@
 ru:
   activerecord:
     models:
+      photo: 'Фотография'
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
     attributes:
+      photo:
+        photo: 'Фотография'
+      comment:
+        body: 'Комментарий'
       user:
+        user: 'Юзер'
+        avatar: 'Аватарка'
         email: 'Email'
         name: 'Имя'
         password: 'Пароль'
@@ -14,7 +22,13 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      subscription:
+        user: 'Подписчик'
   controllers:
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
@@ -59,12 +73,16 @@ ru:
     few:  'ошибки'
     many: 'ошибок'
 
+  events:
+    delete_confirm: 'Вы точно хотите удалить событие?'
+
   comments:
     submit: 'Отправить'
-    comment:
-      destroy_confirm: 'Вы точно хотите удалить этот комментарий?'
+    destroy_confirm: 'Вы точно хотите удалить этот комментарий?'
 
   subscriptions:
+    user_name: 'Имя пользователя'
+    user_email: 'Email подписчика'
     subscribe: 'Подписаться'
     subscription:
       destroy_confirm: 'Вы точно хотите удалить эту подписку?'
