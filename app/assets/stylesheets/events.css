@@ -1,8 +1,9 @@
 .event-info {
-  position: relative;
+  border-radius: 10px;
   color: white;
-  overflow: hidden;
   margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
 }
 
 .event-background {
@@ -43,4 +44,16 @@
   margin: 20px 0;
   width: 100%;
   height: 400px;
+}
+
+.event-gallery {
+   border-radius: 10px;
+  border: solid 1px #d0d0ff;
+  padding: 10px;
+}
+
+
+.event-gallery img{
+  border: solid 4px #428bca;
+  border-radius: 5px;
 }

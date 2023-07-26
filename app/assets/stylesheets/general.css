@@ -43,3 +43,7 @@
 .alert {
   display:inline-block;
 }
+
+ymaps {
+  border-radius: 10px;
+}

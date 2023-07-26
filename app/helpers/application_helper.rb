@@ -38,4 +38,8 @@ module ApplicationHelper
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
+
+  def sanitize_text(text)
+    sanitize(text, tags: %w[br mark ins del sup sub small i b])
+  end
 end

@@ -1,5 +1,5 @@
 <div class="buffer-bottom comment">
-  <p class="buffer-both"><%= comment.body %></p>
+  <p class="buffer-both"><%= sanitize_text comment.body %></p>
   <hr>
   <p>
     <span>
@@ -15,7 +15,7 @@
             fa_icon('trash'), event_comment_path(comment.event, comment),
             data: {
                     turbo_method: :delete,
-                    turbo_confirm: t('comments.destroy_confirm'),
+                    turbo_confirm: t('views.comments.destroy_confirm'),
                   }
           )
       %>

@@ -10,6 +10,7 @@ ru:
         photo: 'Фотография'
       comment:
         body: 'Комментарий'
+        user_name: 'Имя пользователя'
       user:
         user: 'Юзер'
         avatar: 'Аватарка'
@@ -24,11 +25,13 @@ ru:
         description: 'Описание'
       subscription:
         user: 'Подписчик'
+        user_name: 'Имя пользователя'
+        user_email: 'Email пользователя'
   controllers:
     photos:
       error: 'Что-то не так с фоткой'
       created: 'Вы добавили фотографию к событию'
-      destroyed: 'Вы удалили фотку'
+      destroyed: 'Вы удалили фотографию'
     subscriptions:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
@@ -52,10 +55,25 @@ ru:
           'Новое событие'
       edit: 'Редактирование события'
       destroy: 'Удалить событие'
+      delete_confirm: 'Вы точно хотите удалить событие?'
+    events:
+      gallery: 'Галерея'
+    comments:
+      user_name: 'Имя Пользователя'
+      submit: 'Отправить'
+      destroy_confirm: 'Вы точно хотите удалить этот комментарий?'
+    photos:
+      destroy_confirm: "Вы точно хотите удалить эту фотографию?"
+    subscriptions:
+      user_name: 'Имя пользователя'
+      user_email: 'Email подписчика'
+      subscribe: 'Подписаться'
+      destroy_confirm: 'Вы точно хотите удалить эту подписку?'
 
   app:
     name: 'Шашлыки'
     company: 'ТерАрт'
+    yandex_maps_terms: 'Условия использования Яндекс.карт'
 
   delete: 'Удалить'
   edit: 'Изменить'
@@ -72,17 +90,3 @@ ru:
     one:  'ошибка'
     few:  'ошибки'
     many: 'ошибок'
-
-  events:
-    delete_confirm: 'Вы точно хотите удалить событие?'
-
-  comments:
-    submit: 'Отправить'
-    destroy_confirm: 'Вы точно хотите удалить этот комментарий?'
-
-  subscriptions:
-    user_name: 'Имя пользователя'
-    user_email: 'Email подписчика'
-    subscribe: 'Подписаться'
-    subscription:
-      destroy_confirm: 'Вы точно хотите удалить эту подписку?'

@@ -6,6 +6,7 @@ class Photo < ApplicationRecord
 
   validates :event, presence: true
   validates :user, presence: true
+  validates :photo, presence: true
 
   mount_uploader :photo, PhotoUploader
 end

@@ -8,12 +8,12 @@
 
   <% unless user_signed_in? %>
     <div class="form-group">
-      <%= form.label :user_name %>
+      <%= form.label t('views.comments.user_name') %>
       <%= form.text_field :user_name, class: 'form-control' %>
     </div>
   <% end %>
 
   <div class="actions">
-    <%= form.submit t('comments.submit'), class: 'btn btn-primary'%>
+    <%= form.submit t('views.comments.submit'), class: 'btn btn-primary'%>
   </div>
 <% end %>

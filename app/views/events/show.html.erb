@@ -2,19 +2,19 @@
   <div class="event-info row">
     <div class="col-md-12">
       <%= content_tag 'div', '',
-                      class: 'event-background',
+                      class: 'event-background rounded-lg',
                       style: "background-image: url(#{event_photo(@event)})"
       %>
 
       <div class="event-info-inner row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="event-description">
-            <h1><%= @event.title %></h1>
+            <h1><%= sanitize_text @event.title %></h1>
             <h3><%= l(@event.datetime, format: :short) %></h3>
             <h3>
-              <small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small>
+              <small><%= link_to sanitize_text(@event.address), "https://yandex.ru/maps/?text=#{sanitize_text(@event.address)}" %></small>
             </h3>
-            <p><%= @event.description %></p>
+            <p><%= sanitize_text @event.description %></p>
           </div>
 
             <% if current_user_can_edit?(@event) %>
@@ -30,6 +30,13 @@
               </ul>
             <% end %>
         </div>
+
+        <div class="col-md-7">
+          <div id="map"
+            data-address= "<%= @event.address %>"
+            style="width: 100%; height: 400px; padding: 10px">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -37,11 +44,17 @@
   <div class="row">
     <div class="col-md-8">
       <div class="event-photos">
-        <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
-        </div>
 
-         <% if current_user.present? %>
+        <% if @event.photos.except(@new_photo).any? %>
+          <h2><%= t('views.events.gallery') %></h2>
+          <div class="event-gallery">
+            <div class="event-photos-gallery">
+              <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+            </div>
+          </div>
+        <% end %>
+
+        <% if current_user.present? %>
           <div class="event-photo-form">
             <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
           </div>
