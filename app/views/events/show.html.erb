@@ -17,7 +17,7 @@
             <p><%= sanitize_text @event.description %></p>
           </div>
 
-            <% if current_user_can_edit?(@event) %>
+            <% if policy(@event).update? %>
               <ul class="list-inline">
                 <li class="list-inline-item">
                   <%= link_to t('edit'), edit_event_path(@event), class: 'btn btn-primary'-%>
@@ -25,7 +25,7 @@
 
                 <li class="list-inline-item">
                   <%= button_to t('delete'), event_path(@event), method: :delete,
-                  data: { turbo_confirm: t('events.delete_confirm') }, class: 'btn btn-primary buffer-sm-top' %>
+                  data: { turbo_confirm: t('views.events.delete_confirm') }, class: 'btn btn-primary buffer-sm-top' %>
                 </li>
               </ul>
             <% end %>
@@ -33,7 +33,7 @@
 
         <div class="col-md-7">
           <div id="map"
-            data-address= "<%= @event.address %>"
+            data-address= "<%= sanitize_text @event.address %>"
             style="width: 100%; height: 400px; padding: 10px">
           </div>
         </div>
@@ -72,11 +72,12 @@
 
     <div class="col-md-4">
       <div class="event-owner">
-        <h4>Зовет:</h4>
+        <h4><%= t('views.events.owner_invites') %>:</h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
+
       <div class="event-subscriptions">
-        <h4>Пойдут:</h4>
+        <h4><%= t('views.events.subscribers_attending') %>:</h4>
         <div>
           <p>
           <%= render partial: 'subscriptions/subscription',
@@ -84,16 +85,16 @@
           </p>
         </div>
       </div>
-      <div class="event-subscription-form">
-        <h4>Я пойду:</h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-                     subscription: @new_subscription || @event.subscriptions.build
-          } %>
+
+      <% unless @event.user == current_user %>
+        <div class="event-subscription-form">
+          <h4><%= t('views.events.i_am_attending') %>:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form',
+              locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
-
-
 </div>

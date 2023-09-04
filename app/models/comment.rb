@@ -5,7 +5,6 @@ class Comment < ApplicationRecord
   validates  :event, presence: true
   validates :body, presence: true
 
-  # Это поле должно быть, только если не выполняется user.present? (у объекта не задан юзер)
   validates :user_name, presence: true, unless: -> { user.present? }
 
   def user_name

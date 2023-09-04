@@ -37,7 +37,13 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'rmagick'
 
-group :development, :test do
+gem 'pundit'
+
+group :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
   gem 'byebug'
 end
 

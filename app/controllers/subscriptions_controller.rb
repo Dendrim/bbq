@@ -2,29 +2,23 @@ class SubscriptionsController < ApplicationController
   before_action :set_event, only: %i[create destroy]
   before_action :set_subscription, only: %i[destroy]
 
-  # GET /subscriptions or /subscriptions.json
   def index
     @subscriptions = Subscription.all
   end
 
-  # GET /subscriptions/1 or /subscriptions/1.json
   def show
   end
 
-  # GET /subscriptions/new
   def new
     @subscription = Subscription.new
   end
 
-  # GET /subscriptions/1/edit
   def edit
   end
 
-  # PATCH/PUT /subscriptions/1 or /subscriptions/1.json
   def update
   end
 
-  # POST /subscriptions or /subscriptions.json
   def create
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
@@ -55,7 +49,6 @@ class SubscriptionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_subscription
     @subscription = @event.subscriptions.find(params[:id])
   end
@@ -64,7 +57,6 @@ class SubscriptionsController < ApplicationController
     @event = Event.find(params[:event_id])
   end
 
-  # Only allow a list of trusted parameters through.
   def subscription_params
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end

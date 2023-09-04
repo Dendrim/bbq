@@ -50,13 +50,15 @@ ru:
       updated: 'Вы обновили свой профиль'
   views:
     events:
+      i_am_attending: 'Я пойду'
+      owner_invites: 'Зовет'
+      subscribers_attending: 'Пойдут'
       new:
         title:
           'Новое событие'
       edit: 'Редактирование события'
       destroy: 'Удалить событие'
       delete_confirm: 'Вы точно хотите удалить событие?'
-    events:
       gallery: 'Галерея'
     comments:
       user_name: 'Имя Пользователя'
