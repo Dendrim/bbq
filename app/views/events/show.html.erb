@@ -81,19 +81,21 @@
         <div>
           <p>
           <%= render partial: 'subscriptions/subscription',
-                     collection: @event.subscriptions.except(@new_subscription) %>
+                     collection: @subscriptions %>
           </p>
         </div>
       </div>
 
       <% unless @event.user == current_user %>
-        <div class="event-subscription-form">
-          <h4><%= t('views.events.i_am_attending') %>:</h4>
-          <div>
-            <%= render partial: 'subscriptions/form',
-              locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+        <%= turbo_frame_tag 'subscription_form' do %>
+          <div class="event-subscription-form">
+            <h4><%= t('views.events.i_am_attending') %>:</h4>
+            <div>
+              <%= render partial: 'subscriptions/form',
+                locals: { subscription: @new_subscription || @event.subscriptions.build } %>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

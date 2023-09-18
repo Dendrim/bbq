@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   after_action :verify_policy_scoped, only: %i[index]
 
   def index
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).includes(:user, :subscribers)
     authorize @events
   end
 
@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
+    @subscriptions = @event.subscriptions.except(@new_subscription)
   end
 
   def new
@@ -63,7 +64,7 @@ class EventsController < ApplicationController
   private
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.includes(:subscribers, :subscriptions).find(params[:id])
   end
 
   def event_params
