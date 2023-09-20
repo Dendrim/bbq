@@ -87,15 +87,13 @@
       </div>
 
       <% unless @event.user == current_user %>
-        <%= turbo_frame_tag 'subscription_form' do %>
-          <div class="event-subscription-form">
-            <h4><%= t('views.events.i_am_attending') %>:</h4>
-            <div>
-              <%= render partial: 'subscriptions/form',
-                locals: { subscription: @new_subscription || @event.subscriptions.build } %>
-            </div>
+        <div class="event-subscription-form">
+          <h4><%= t('views.events.i_am_attending') %>:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form',
+              locals: { subscription: @new_subscription || @event.subscriptions.build } %>
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
   </div>
