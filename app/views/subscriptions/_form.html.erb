@@ -15,7 +15,7 @@
 
   <% if current_user != @event.user %>
     <div class="actions">
-      <%= form.submit t('views.subscriptions.subscribe'), class: 'btn btn-primary'%>
+      <%= form.submit t('views.subscriptions.subscribe'), class: 'btn btn-primary', data: {turbo: false} %>
     </div>
   <% end %>
 <% end %>
