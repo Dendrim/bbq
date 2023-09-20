@@ -1,31 +1,38 @@
-function init(){
-  address = document.getElementById('map').getAttribute('data-address');
+document.addEventListener("turbo:load", function () {
+  ymaps.ready(init);
+  let myMap;
 
-  var myMap;
-  myMap = new ymaps.Map("map", {
-      center: [55.76, 37.64],
-      zoom: 10
-  });
+  function init(){
+    let mapElement = document.getElementById('map');
 
-  myGeocoder = ymaps.geocode(address);
+    if (mapElement) {
+      address = mapElement.getAttribute('data-address');
 
-  myGeocoder.then(
-    function (res) {
-      coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+      myMap = new ymaps.Map("map", {
+        center: [55.76, 37.64],
+        zoom: 10
+      });
 
-      myMap.geoObjects.add(
-          new ymaps.Placemark(
-            coordinates,
-            {iconContent: address},
-            {preset: 'islands#blueStretchyIcon'}
-          )
+      myGeocoder = ymaps.geocode(address);
+
+      myGeocoder.then(
+        function (res) {
+          coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+
+          myMap.geoObjects.add(
+            new ymaps.Placemark(
+              coordinates,
+              {iconContent: address},
+              {preset: 'islands#blueStretchyIcon'}
+            )
+          );
+
+          myMap.setCenter(coordinates);
+          myMap.setZoom(15);
+        }, function (err) {
+          alert('Что-то пошло не так!');
+        }
       );
-
-      myMap.setCenter(coordinates);
-      myMap.setZoom(15);
-    }, function (err) {
-      alert('Что-то пошло не так!');
-    }
-  );
-}
-ymaps.ready(init);
+    };
+  };
+})

@@ -12,7 +12,8 @@
             <h1><%= sanitize_text @event.title %></h1>
             <h3><%= l(@event.datetime, format: :short) %></h3>
             <h3>
-              <small><%= link_to sanitize_text(@event.address), "https://yandex.ru/maps/?text=#{sanitize_text(@event.address)}" %></small>
+              <small><%= link_to sanitize_text(@event.address),
+                                 "https://yandex.ru/maps/?text=#{sanitize_text(@event.address)}" %></small>
             </h3>
             <p><%= sanitize_text @event.description %></p>
           </div>
@@ -76,18 +77,18 @@
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
 
-      <%= turbo_frame_tag 'subscriptions' do %>
-        <div class="event-subscriptions">
-          <h4><%= t('views.events.subscribers_attending') %>:</h4>
-          <div>
-            <p>
-            <%= render partial: 'subscriptions/subscription',
-                      collection: @subscriptions %>
-            </p>
-          </div>
-        </div>
 
-        <% unless @event.user == current_user %>
+      <div class="event-subscriptions">
+        <h4><%= t('views.events.subscribers_attending') %>:</h4>
+        <div>
+          <p>
+          <%= render partial: 'subscriptions/subscription',
+                    collection: @subscriptions %>
+          </p>
+        </div>
+      </div>
+
+      <% unless @event.user == current_user ||  @event.subscribers.include?(current_user) %>
           <div class="event-subscription-form">
             <h4><%= t('views.events.i_am_attending') %>:</h4>
             <div>
@@ -95,7 +96,6 @@
                 locals: { subscription: @new_subscription || @event.subscriptions.build } %>
             </div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
