@@ -40,13 +40,20 @@ gem 'rmagick'
 gem 'pundit'
 
 group :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'shoulda-matchers'
   gem 'byebug'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'sqlite3'
 end
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'web-console'
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 end
