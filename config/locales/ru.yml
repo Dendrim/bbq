@@ -49,6 +49,13 @@ ru:
     users:
       updated: 'Вы обновили свой профиль'
   views:
+    sessions:
+      sign_in: 'Вход в аккаунт'
+      if_forgot_password: 'Забыли пароль?'
+      finish_login: 'Войти'
+    users:
+      new: 'Регистрация'
+      finish_registration: 'Зарегистрироваться'
     events:
       i_am_attending: 'Я пойду'
       owner_invites: 'Зовет'
