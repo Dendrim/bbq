@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "turbo", type: "module" %>
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ba2b1e54-ed79-4242-babb-3ea50ac66dc8&lang=ru_RU" type="text/javascript"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= ENV['YANDEX_MAPS_TOKEN'] %>&lang=ru_RU" type="text/javascript"></script>
 
     <%= javascript_include_tag "application" %>
 
