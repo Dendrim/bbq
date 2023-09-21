@@ -26,6 +26,7 @@ class SubscriptionsController < ApplicationController
     if @new_subscription.save
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
+      @subscriptions = @event.subscriptions.except(@new_subscription)
       render 'events/show', status: :unprocessable_entity
     end
   end
