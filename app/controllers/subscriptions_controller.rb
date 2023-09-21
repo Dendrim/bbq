@@ -23,13 +23,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @event.user == current_user
-      flash.now[:notice] = I18n.t('controllers.subscriptions.cant_subscribe_to_your_own_event')
-      render 'events/show', status: :unprocessable_entity
-    elsif User.where(email: @new_subscription&.user&.email || @new_subscription.user_email).exists? && current_user.blank?
-      flash.now[:notice] = I18n.t('controllers.subscriptions.cant_sub_registered')
-      render 'events/show', status: :unprocessable_entity
-    elsif @new_subscription.save
+    if @new_subscription.save
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
       render 'events/show', status: :unprocessable_entity
