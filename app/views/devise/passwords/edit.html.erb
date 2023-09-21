@@ -1,4 +1,4 @@
-<h2>Change your password</h2>
+<h2><% t('views.passwords.change_your_password') %></h2>
 
 <div class="row">
   <div class="col-md-6">
@@ -7,7 +7,7 @@
       <%= f.hidden_field :reset_password_token %>
 
       <div class="field buffer-top">
-        <%= f.label :password, "New password" %>
+        <%= f.label :password, t('views.passwords.new_password') %>
         <% if @minimum_password_length %>
           <em><%= "(#{@minimum_password_length} #{t('views.passwords.minimal_length', count: @minimum_password_length)})" %></em>
         <% end %>
@@ -15,12 +15,12 @@
       </div>
 
       <div class="field buffer-top">
-        <%= f.label :password_confirmation, "Confirm new password" %>
+        <%= f.label :password_confirmation, t('views.passwords.new_password_confirm') %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Change my password", class: 'btn btn-primary buffer-top' %>
+        <%= f.submit t('views.passwords.accept_to_change_password'), class: 'btn btn-primary buffer-top' %>
       </div>
     <% end %>
   </div>

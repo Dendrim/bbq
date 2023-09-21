@@ -55,6 +55,10 @@ ru:
       new: 'Забыли пароль?'
       request_instructions: 'Получить инструкции по смене пароля'
       edit: 'Сменить пароль'
+      change_your_password: 'Смена пароля'
+      new_password: 'Новый пароль'
+      new_password_confirm: 'Повторите пароль'
+      change_my_password: 'Подтвердить'
       minimal_length:
         one: "символ минимум"
         few: "символа минимум"
