@@ -51,6 +51,14 @@ ru:
     users:
       updated: 'Вы обновили свой профиль'
   views:
+    passwords:
+      new: 'Забыли пароль?'
+      request_instructions: 'Получить инструкции по смене пароля'
+      edit: 'Сменить пароль'
+      minimal_length:
+        one: "символ минимум"
+        few: "символа минимум"
+        many: "символов минимум"
     sessions:
       sign_in: 'Вход в аккаунт'
       if_forgot_password: 'Забыли пароль?'
