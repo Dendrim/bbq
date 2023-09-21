@@ -1,15 +1,15 @@
 <h2><%= t('views.sessions.sign_in') %></h2>
 
 <div class="row">
-  <div class="col-md-4" >
+  <div class="col-md-6" >
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field buffer-top">
-        <%= f.label :email %><br />
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="buffer-top">
-        <%= f.label :password %><br />
+        <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
       </div>
 
